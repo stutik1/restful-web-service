@@ -1,6 +1,7 @@
 package com.microservice.megha.helloworld;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -14,6 +15,13 @@ public class HelloWorldController {
 
     @GetMapping("/hello")
     public HelloWorldBean helloWorldBean(){
-        return new HelloWorldBean ("Hello Megha");
+        return new HelloWorldBean ("Hello World");
+    }
+
+    @GetMapping("/{name}")
+    //@GetMapping("/path-variable/{name}")
+
+    public HelloWorldBean helloWorldName (@PathVariable String name){
+        return new HelloWorldBean("Hello World " + name );
     }
 }
