@@ -26,7 +26,7 @@ public class CustomizedResponseEntityCustomExceptions extends ResponseEntityExce
     public final ResponseEntity<ErrorDetails> userNotFoundExceptions(Exception ex ,WebRequest request) throws Exception{
         ErrorDetails errorDetails = new ErrorDetails(LocalDateTime.now() ,
                 ex.getMessage(), request.getDescription(false));
-        //TODO why false in discriptions
+
 
         return new ResponseEntity<ErrorDetails>(errorDetails, HttpStatus.NOT_FOUND);
     }
