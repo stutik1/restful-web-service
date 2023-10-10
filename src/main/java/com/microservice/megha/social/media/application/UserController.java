@@ -44,15 +44,19 @@ public class UserController {
     public ResponseEntity<User> createNewUser(@RequestBody User user){
        User savedUser = userDaoService.createUser(user);
        // return ResponseEntity.ok(user);
-        return  ResponseEntity.status(HttpStatus.CREATED).body(user);
+       // return  ResponseEntity.status(HttpStatus.CREATED).body(user);
 
 
         //TODO: aSK GURU
-//        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-//                .path("/{id}")
-//                .buildAndExpand(savedUser.getId())
-//                .toUri();
-//            return ResponseEntity.created(location).build() ;
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(savedUser.getId())
+                .toUri();
+            return ResponseEntity.created(location).build() ;
+    }
 
+    @DeleteMapping("/users/{id}")
+    public void deleteUserById(@PathVariable int id){
+       userDaoService.deleteUserById(id);
     }
 }
