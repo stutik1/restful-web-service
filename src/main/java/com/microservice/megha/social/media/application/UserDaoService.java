@@ -36,7 +36,7 @@ public class UserDaoService {
 
     public User getById(int id){
         Predicate<? super User> predicate = users -> Objects.equals(users.getId(), id);
-       // return users.stream().filter(predicate).findFirst().get();
+        //return users.stream().filter(predicate).findFirst().get();
         return users.stream().filter(predicate).findFirst().orElse(null);  // if error occur it will show null
     }
 
@@ -44,6 +44,11 @@ public class UserDaoService {
         user.setId(++usersCount);
         users.add(user);
         return user;
+    }
+
+    public void deleteUserById(int id ){
+        Predicate<? super User> predicate = users -> Objects.equals(users.getId(), id);
+        users.removeIf(predicate);
     }
 
 }
