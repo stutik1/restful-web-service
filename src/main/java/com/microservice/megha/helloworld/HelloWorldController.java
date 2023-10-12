@@ -19,7 +19,7 @@ public class HelloWorldController {
     }
 
     @GetMapping("/{name}")
-    //@GetMapping("/path-variable/{name}")
+   // @GetMapping("/path-variable/{name}")
 
     public HelloWorldBean helloWorldName (@PathVariable String name){
         return new HelloWorldBean("Hello World " + name );

@@ -1,6 +1,7 @@
 package com.microservice.megha.social.media.application;
 
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +42,7 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<User> createNewUser(@RequestBody User user){
+    public ResponseEntity<User> createNewUser(@Valid @RequestBody User user){
        User savedUser = userDaoService.createUser(user);
        // return ResponseEntity.ok(user);
        // return  ResponseEntity.status(HttpStatus.CREATED).body(user);
