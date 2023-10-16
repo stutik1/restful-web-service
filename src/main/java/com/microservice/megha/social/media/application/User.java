@@ -1,5 +1,6 @@
 package com.microservice.megha.social.media.application;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
@@ -9,9 +10,11 @@ public class User {
     private int id ;
 
     @Size(min = 2 , message = "Name should have atleast 2 character")
+    @JsonProperty("user_name")
     private String name ;
 
     @Past(message = "Bith date should be in past")
+    @JsonProperty("birth_date")
     private LocalDate birthDate ;
 
     public User(int id, String name, LocalDate birthDate) {
