@@ -1,6 +1,8 @@
-package com.microservice.megha.social.media.application;
+package com.microservice.megha.jpa;
 
 import com.microservice.megha.jpa.UserRepository;
+import com.microservice.megha.social.media.application.User;
+import com.microservice.megha.social.media.application.UserNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
