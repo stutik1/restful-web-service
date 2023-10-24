@@ -42,6 +42,18 @@ public class User {
     public User() {
     }
 
+    public User(List<Post> post) {
+        this.post = post;
+    }
+
+    public List<Post> getPost() {
+        return post;
+    }
+
+    public void setPost(List<Post> post) {
+        this.post = post;
+    }
+
     public int getId() {
         return id;
     }
